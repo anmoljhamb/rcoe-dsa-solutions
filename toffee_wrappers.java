@@ -1,6 +1,6 @@
 class toffee_wrappers {
   public static void main(String[] args) {
-    int n = 30;
+    int n = 70;
     int ans = 0;
     int k = 5;
     while (n > 0) {
