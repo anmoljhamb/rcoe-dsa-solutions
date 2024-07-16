@@ -5,10 +5,18 @@ class recursion_1 {
     // print(n);
     // System.out.println("The value of 2^3: " + pow(2, 3));
     int[] arr = { 7, 6, 5, 4 };
-    // printArr(arr);
     // reversePrintArr(arr, 1);
     // System.out.println(searchInArry(arr, 20, 0));
-    System.out.println(fib(6));
+    // System.out.println(fib(6));
+    printArr(arr);
+    swap(arr, 0, 1);
+    printArr(arr);
+  }
+
+  public static void swap(int[] arr, int i, int j) {
+    int c = arr[i];
+    arr[i] = arr[j];
+    arr[j] = c;
   }
 
   public static int factorial(int n) {
@@ -68,4 +76,5 @@ class recursion_1 {
     }
     return fib(n - 1) + fib(n - 2);
   }
+
 }
