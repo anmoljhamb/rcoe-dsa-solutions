@@ -1,10 +1,27 @@
 class array_1 {
   public static void main(String[] args) {
     int[] arr = { -1, -2, -3 };
-    printArr(arr);
-    swap(arr, 0, 1);
-    printArr(arr);
-    System.out.println(max(arr));
+    // printArr(arr);
+    // swap(arr, 0, 1);
+    // printArr(arr);
+    // System.out.println(max(arr));
+    int[] arr1 = { -1, -2, -3, 5, 5 };
+    int[] arr2 = { 1, 2, 3 };
+    System.out.println("Before: ");
+    System.out.println("arr1: ");
+    printArr(arr1);
+    System.out.println("arr2: ");
+    printArr(arr2);
+
+    int[] temp = arr1;
+    arr1 = arr2;
+    arr2 = temp;
+
+    System.out.println("After: ");
+    System.out.println("arr1: ");
+    printArr(arr1);
+    System.out.println("arr2: ");
+    printArr(arr2);
   }
 
   public static void swap(int[] arr, int a, int b) {
