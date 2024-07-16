@@ -5,8 +5,9 @@ class recursion_1 {
     // print(n);
     // System.out.println("The value of 2^3: " + pow(2, 3));
     int[] arr = { 7, 6, 5, 4 };
-    printArr(arr);
-    reversePrintArr(arr, 0);
+    // printArr(arr);
+    // reversePrintArr(arr, 1);
+    System.out.println(searchInArry(arr, 20, 0));
   }
 
   public static int factorial(int n) {
@@ -48,5 +49,15 @@ class recursion_1 {
 
   public static void printArr(int[] arr) {
     printArr(arr, 0);
+  }
+
+  public static int searchInArry(int[] arr, int target, int startIndex) {
+    if (startIndex == arr.length) {
+      return -1;
+    }
+    if (arr[startIndex] == target) {
+      return startIndex;
+    }
+    return searchInArry(arr, target, startIndex + 1);
   }
 }
