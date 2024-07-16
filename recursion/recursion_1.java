@@ -9,8 +9,16 @@ class recursion_1 {
     // System.out.println(searchInArry(arr, 20, 0));
     // System.out.println(fib(6));
     printArr(arr);
-    swap(arr, 0, 1);
+    reverseArr(arr, 0, arr.length - 1);
     printArr(arr);
+  }
+
+  public static void reverseArr(int[] arr, int startIndex, int endIndex) {
+    if (startIndex >= endIndex) {
+      return;
+    }
+    swap(arr, startIndex, endIndex);
+    reverseArr(arr, startIndex + 1, endIndex - 1);
   }
 
   public static void swap(int[] arr, int i, int j) {
