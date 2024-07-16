@@ -7,7 +7,8 @@ class recursion_1 {
     int[] arr = { 7, 6, 5, 4 };
     // printArr(arr);
     // reversePrintArr(arr, 1);
-    System.out.println(searchInArry(arr, 20, 0));
+    // System.out.println(searchInArry(arr, 20, 0));
+    System.out.println(fib(6));
   }
 
   public static int factorial(int n) {
@@ -59,5 +60,12 @@ class recursion_1 {
       return startIndex;
     }
     return searchInArry(arr, target, startIndex + 1);
+  }
+
+  public static int fib(int n) {
+    if (n == 0 || n == 1) {
+      return n;
+    }
+    return fib(n - 1) + fib(n - 2);
   }
 }
