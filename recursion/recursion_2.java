@@ -5,7 +5,23 @@ class recursion_2 {
     // System.out.println("The number of subsequences: " + count);
     int n = 2;
     // coinToss(n, "");
-    printAllPossibleDie(n, "");
+    // printAllPossibleDie(n, "");
+    printAllParanthesis(3, 0, 0, "");
+  }
+
+  public static void printAllParanthesis(int n, int openingCount, int closingCount, String ans) {
+    if (openingCount == n && closingCount == n) {
+      System.out.println(ans);
+      return;
+    }
+
+    if (closingCount < openingCount) {
+      printAllParanthesis(n, openingCount, closingCount + 1, ans + ")");
+    }
+
+    if (openingCount < n) {
+      printAllParanthesis(n, openingCount + 1, closingCount, ans + "(");
+    }
   }
 
   public static void printAllPossibleDie(int n, String ans) {
