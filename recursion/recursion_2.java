@@ -13,12 +13,9 @@ class recursion_2 {
       System.out.println(ans);
       return;
     }
-    printAllPossibleDie(n - 1, ans + 1);
-    printAllPossibleDie(n - 1, ans + 2);
-    printAllPossibleDie(n - 1, ans + 3);
-    printAllPossibleDie(n - 1, ans + 4);
-    printAllPossibleDie(n - 1, ans + 5);
-    printAllPossibleDie(n - 1, ans + 6);
+    for (int i = 1; i <= 6; i++) {
+      printAllPossibleDie(n - 1, ans + i);
+    }
   }
 
   public static int count = 0;
