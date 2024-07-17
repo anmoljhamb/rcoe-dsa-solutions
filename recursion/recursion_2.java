@@ -3,8 +3,22 @@ class recursion_2 {
     // int[] arr = { 1, 2, 3 };
     // printSubSeq(arr, 0, "");
     // System.out.println("The number of subsequences: " + count);
-    int n = 3;
-    coinToss(n, "");
+    int n = 2;
+    // coinToss(n, "");
+    printAllPossibleDie(n, "");
+  }
+
+  public static void printAllPossibleDie(int n, String ans) {
+    if (n == 0) {
+      System.out.println(ans);
+      return;
+    }
+    printAllPossibleDie(n - 1, ans + 1);
+    printAllPossibleDie(n - 1, ans + 2);
+    printAllPossibleDie(n - 1, ans + 3);
+    printAllPossibleDie(n - 1, ans + 4);
+    printAllPossibleDie(n - 1, ans + 5);
+    printAllPossibleDie(n - 1, ans + 6);
   }
 
   public static int count = 0;
