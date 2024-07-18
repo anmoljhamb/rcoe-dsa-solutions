@@ -1,8 +1,29 @@
 public class recursion_3 {
   public static void main(String[] args) {
     // printPath(3, 3, 0, 0, "");
-    String str = "abcde";
-    printPermutations(str, "");
+    String str = "aab";
+    printPermutations2(str, "");
+  }
+
+  public static void printPermutations2(String str, String ans) {
+    if (str.length() == 0) {
+      System.out.println(ans);
+      return;
+    }
+
+    for (int i = 0; i < str.length(); i++) {
+      char ch = str.charAt(i);
+      boolean found = false;
+      for (int j = i + 1; j < str.length(); j++) {
+        if (str.charAt(j) == ch) {
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        printPermutations2(str.substring(0, i) + str.substring(i + 1), ans + ch);
+      }
+    }
   }
 
   public static void printPermutations(String str, String ans) {
