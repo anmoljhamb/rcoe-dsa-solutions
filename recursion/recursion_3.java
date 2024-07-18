@@ -19,7 +19,7 @@ public class recursion_3 {
 
     list.add(curr);
 
-    for (int i = 1; i <= 9; i++) {
+    for (int i = 0; i <= 9; i++) {
       printLexicalNumbers(n, curr * 10 + i, list);
     }
   }
