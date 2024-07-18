@@ -14,7 +14,7 @@ public class recursion_3 {
     for (int i = 0; i < str.length(); i++) {
       char ch = str.charAt(i);
       boolean found = false;
-      for (int j = i + 1; j < str.length(); j++) {
+      for (int j = 0; j < i; j++) {
         if (str.charAt(j) == ch) {
           found = true;
           break;
