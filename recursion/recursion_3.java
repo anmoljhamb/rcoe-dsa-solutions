@@ -1,26 +1,23 @@
-import java.util.ArrayList;
-
-import com.sun.tools.javac.util.List;
-
 public class recursion_3 {
   public static void main(String[] args) {
-    int n = 100;
-    List<Integer> list = new ArrayList<Integer>();
-
-    for (int i = 1; i <= 9; i++) {
-      printLexicalNumbers(n, i, list);
-    }
+    printPath(3, 3, 0, 0, "");
   }
 
-  public static void printLexicalNumbers(int n, int curr, java.util.List<Integer> list) {
-    if (curr > n) {
+  public static void printPath(int m, int n, int i, int j, String ans) {
+    if (i == (m - 1) && j == (n - 1)) {
+      System.out.println(ans);
       return;
     }
 
-    list.add(curr);
-
-    for (int i = 0; i <= 9; i++) {
-      printLexicalNumbers(n, curr * 10 + i, list);
+    if (i >= m) {
+      return;
     }
+
+    if (j >= n) {
+      return;
+    }
+
+    printPath(m, n, i + 1, j, ans + "V");
+    printPath(m, n, i, j + 1, ans + "H");
   }
 }
