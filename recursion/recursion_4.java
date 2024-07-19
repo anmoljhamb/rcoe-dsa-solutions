@@ -1,10 +1,11 @@
 class recursion_4 {
   public static void main(String[] args) {
     int target = 4;
-    generate(target, "");
+    int k = 4;
+    generate(target, "", k);
   }
 
-  public static void generate(int target, String ans) {
+  public static void generate(int target, String ans, int k) {
     if (target < 0) {
       return;
     }
@@ -13,8 +14,9 @@ class recursion_4 {
       return;
     }
 
-    generate(target - 1, ans + 1);
-    generate(target - 2, ans + 2);
-    generate(target - 3, ans + 3);
+    for (int i = 1; i <= k; i++) {
+      generate(target - i, ans + i, k);
+    }
+
   }
 }
