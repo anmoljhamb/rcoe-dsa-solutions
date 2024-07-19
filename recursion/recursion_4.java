@@ -11,9 +11,27 @@ class recursion_4 {
     // List<String> list = new ArrayList<String>();
     // printAllLetters("23", "", list);
     // return list
-    boolean[] board = { false, false, false, false };
-    int totalQueens = 2;
-    placeQueens(board, totalQueens, 0, "", 0);
+    // boolean[] board = { false, false, false, false };
+    // int totalQueens = 2;
+    // placeQueens(board, totalQueens, 0, "", 0);
+    int target = 8;
+    int[] coins = { 2, 3, 5 };
+
+    coinPermutation(target, coins, "");
+  }
+
+  public static void coinPermutation(int target, int[] coins, String ans) {
+    if (target < 0) {
+      return;
+    }
+    if (target == 0) {
+      System.out.println(ans);
+      return;
+    }
+
+    for (int i = 0; i < coins.length; i++) {
+      coinPermutation(target - coins[i], coins, ans + coins[i]);
+    }
   }
 
   public static void placeQueens(boolean[] board, int totalQueens, int queens, String ans, int startIndex) {
