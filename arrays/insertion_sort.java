@@ -1,11 +1,16 @@
 class insertion_sort {
   public static void main(String[] args) {
-    int[] arr = { 1, 3, 4, 5, 2 };
+    int[] arr = { 5, 4, 3, 2, 1 };
     print(arr);
-    fixLastElement(arr, arr.length - 1);
-    // sort(arr);
+    sort(arr);
     print(arr);
 
+  }
+
+  public static void sort(int[] arr){
+    for ( int i=1; i<arr.length; i++){
+      fixLastElement(arr, i);
+    }
   }
 
   public static void fixLastElement(int[] arr, int i) {
