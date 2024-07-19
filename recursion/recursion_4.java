@@ -8,9 +8,27 @@ class recursion_4 {
     // int k = 4;
     // generate(target, "", k);
 
-    List<String> list = new ArrayList<String>();
-    printAllLetters("23", "", list);
-    return list;
+    // List<String> list = new ArrayList<String>();
+    // printAllLetters("23", "", list);
+    // return list
+    boolean[] board = { false, false, false, false };
+    int totalQueens = 2;
+    placeQueens(board, totalQueens, 0, "");
+  }
+
+  public static void placeQueens(boolean[] board, int totalQueens, int queens, String ans) {
+    if (queens == totalQueens) {
+      System.out.println(ans);
+      return;
+    }
+
+    for (int i = 0; i < board.length; i++) {
+      if (board[i] == false) {
+        board[i] = true;
+        placeQueens(board, totalQueens, queens + 1, ans + "b" + i + "q" + queens);
+        board[i] = false;
+      }
+    }
   }
 
   public static String[] letters = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
@@ -18,9 +36,6 @@ class recursion_4 {
   public static void printAllLetters(String digits, String ans, List<String> list) {
     if (digits.length() == 0) {
       // System.out.println(ans);
-      if (ans.isEmpty()) {
-        return;
-      }
       list.add(ans);
       return;
     }
