@@ -13,19 +13,19 @@ class recursion_4 {
     // return list
     boolean[] board = { false, false, false, false };
     int totalQueens = 2;
-    placeQueens(board, totalQueens, 0, "");
+    placeQueens(board, totalQueens, 0, "", 0);
   }
 
-  public static void placeQueens(boolean[] board, int totalQueens, int queens, String ans) {
+  public static void placeQueens(boolean[] board, int totalQueens, int queens, String ans, int startIndex) {
     if (queens == totalQueens) {
       System.out.println(ans);
       return;
     }
 
-    for (int i = 0; i < board.length; i++) {
+    for (int i = startIndex; i < board.length; i++) {
       if (board[i] == false) {
         board[i] = true;
-        placeQueens(board, totalQueens, queens + 1, ans + "b" + i + "q" + queens);
+        placeQueens(board, totalQueens, queens + 1, ans + "b" + i + "q" + queens, i + 1);
         board[i] = false;
       }
     }
