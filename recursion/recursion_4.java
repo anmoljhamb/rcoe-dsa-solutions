@@ -17,7 +17,21 @@ class recursion_4 {
     int target = 8;
     int[] coins = { 2, 3, 5 };
 
-    coinPermutation(target, coins, "");
+    coinCombinations(target, coins, "", 0);
+  }
+
+  public static void coinCombinations(int target, int[] coins, String ans, int startIndex) {
+    if (target < 0) {
+      return;
+    }
+    if (target == 0) {
+      System.out.println(ans);
+      return;
+    }
+
+    for (int i = startIndex; i < coins.length; i++) {
+      coinCombinations(target - coins[i], coins, ans + coins[i], i);
+    }
   }
 
   public static void coinPermutation(int target, int[] coins, String ans) {
