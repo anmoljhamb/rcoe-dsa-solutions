@@ -15,11 +15,18 @@ public class Array {
       }
     }
 
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        System.out.print(2 * arr[i][j] + " ");
+    for (int col = 0; col < m; col++) {
+      if (col % 2 == 0) {
+        // print straight
+        for (int i = 0; i < n; i++) {
+          System.out.print(arr[i][col] + " ");
+        }
+      } else {
+        //  print reverse
+        for (int i = n - 1; i >= 0; i--) {
+          System.out.print(arr[i][col] + " ");
+        }
       }
-      System.out.println();
     }
   }
 }
