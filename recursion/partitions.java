@@ -1,7 +1,12 @@
+import java.util.*;
+
 public class partitions {
   public static void main(String[] args) {
     String str = "nitin";
-    generate(str, "");
+    List<String> ll = new ArrayList<>();
+    List<List<String>> ans = new ArrayList<>();
+    generate(str, ll, ans);
+    System.out.println(ans);
   }
 
   static boolean isPalindrome(String str) {
@@ -17,15 +22,19 @@ public class partitions {
     return true;
   }
 
-  static void generate(String str, String ans) {
+  static void generate(String str, List<String> ll, List<List<String>> ans) {
     if (str.length() == 0) {
-
-      System.out.println(ans);
+      ans.add(new ArrayList<>(ll));
       return;
     }
+
     for (int i = 0; i < str.length(); i++) {
       String s = str.substring(0, i + 1);
-      if (isPalindrome(s)) generate(str.substring(i + 1), ans + s + "|");
+      if (isPalindrome(s)) {
+        ll.add(s);
+        generate(str.substring(i + 1), ll, ans);
+        ll.remove(ll.size() - 1);
+      }
     }
   }
 }
