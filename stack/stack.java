@@ -18,6 +18,53 @@ public class stack {
     System.out.println(st);
   }
 
+  public boolean isOpening(char ch) {
+    if (ch == '(') {
+      return true;
+    }
+    if (ch == '{') {
+      return true;
+    }
+    if (ch == '[') {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean isMatching(char opening, char closing) {
+    if (opening == '(' && closing == ')') {
+      return true;
+    }
+    if (opening == '{' && closing == '}') {
+      return true;
+    }
+    if (opening == '[' && closing == ']') {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean isValid(String s) {
+    Stack<Character> st = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (isOpening(ch)) {
+        st.push(ch);
+      } else {
+        if (st.isEmpty()) {
+          return false;
+        }
+        char top = st.peek();
+        if (!isMatching(top, ch)) {
+          return false;
+        } else {
+          st.pop();
+        }
+      }
+    }
+    return st.isEmpty();
+  }
+
   static void reverse(Stack<Integer> st) {
     if (st.empty()) {
       return;
