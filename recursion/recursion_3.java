@@ -5,6 +5,23 @@ public class recursion_3 {
     printPermutations2(str, "");
   }
 
+  public static void printLexicalNumbers(int n, int curr) {
+    if (curr > n) {
+      return;
+    }
+
+    System.out.println(curr);
+
+    int i = 0;
+    if (curr == 0) {
+      i = 1;
+    }
+
+    for (i = 1; i <= 9; i++) {
+      printLexicalNumbers(n, curr * 10 + i);
+    }
+  }
+
   public static void printPermutations2(String str, String ans) {
     if (str.length() == 0) {
       System.out.println(ans);
