@@ -10,8 +10,18 @@ public class sem3day8 {
     // System.out.println(pow(a, b));
     // pow1(a, b);
     // pow(a, b, 1);
-    int[] arr = {1, 2, 3, 4};
-    printSubseq(arr, 0, "");
+    // int[] arr = {1, 2, 3, 4};
+    // printSubseq(arr, 0, "");
+    coinToss(n, "");
+  }
+
+  static void coinToss(int n, String ans) {
+    if (n == 0) {
+      System.out.println(ans);
+      return;
+    }
+    coinToss(n - 1, ans + "H");
+    coinToss(n - 1, ans + "T");
   }
 
   static void printSubseq(int[] arr, int i, String ans) {
