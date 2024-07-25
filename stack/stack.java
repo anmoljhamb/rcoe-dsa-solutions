@@ -12,9 +12,19 @@ public class stack {
 
     System.out.println(st);
 
-    insertAtFirst(st, 5);
+    insert(st, 5);
 
     System.out.println(st);
+  }
+
+  static void insert(Stack<Integer> st, int val) {
+    if (st.isEmpty()) {
+      st.push(val);
+      return;
+    }
+    int temp = st.pop();
+    insert(st, val);
+    st.push(temp);
   }
 
   static void insertAtFirst(Stack<Integer> st, int val) {
