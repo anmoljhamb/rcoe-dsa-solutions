@@ -12,9 +12,19 @@ public class stack {
 
     System.out.println(st);
 
-    insert(st, 5);
+    // insert(st, 5);
+    reverse(st);
 
     System.out.println(st);
+  }
+
+  static void reverse(Stack<Integer> st) {
+    if (st.empty()) {
+      return;
+    }
+    int temp = st.pop();
+    reverse(st);
+    insert(st, temp);
   }
 
   static void insert(Stack<Integer> st, int val) {
