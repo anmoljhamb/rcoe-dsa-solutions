@@ -5,11 +5,24 @@ public class sem3day8 {
     // printToN(n);
     // System.out.println(factorial(5));
     // factorial2(n, 1);
-    int a = 2;
-    int b = 10;
-    System.out.println(pow(a, b));
-    pow1(a, b);
-    pow(a, b, 1);
+    // int a = 2;
+    // int b = 10;
+    // System.out.println(pow(a, b));
+    // pow1(a, b);
+    // pow(a, b, 1);
+    int[] arr = {1, 2, 3, 4};
+    printSubseq(arr, 0, "");
+  }
+
+  static void printSubseq(int[] arr, int i, String ans) {
+    if (i == arr.length) {
+      System.out.println(ans);
+      return;
+    }
+    // take
+    printSubseq(arr, i + 1, ans + arr[i] + " ");
+    // not take
+    printSubseq(arr, i + 1, ans);
   }
 
   static void pow(int a, int b, int ans) {
