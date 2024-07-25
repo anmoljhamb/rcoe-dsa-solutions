@@ -12,7 +12,18 @@ public class sem3day8 {
     // pow(a, b, 1);
     // int[] arr = {1, 2, 3, 4};
     // printSubseq(arr, 0, "");
-    coinToss(n, "");
+    coinToss2(n, "");
+  }
+
+  static void coinToss2(int n, String ans) {
+    if (n == 0) {
+      System.out.println(ans);
+      return;
+    }
+    if (ans.length() == 0 || ans.charAt(ans.length() - 1) != 'H') {
+      coinToss2(n - 1, ans + "H");
+    }
+    coinToss2(n - 1, ans + "T");
   }
 
   static void coinToss(int n, String ans) {
