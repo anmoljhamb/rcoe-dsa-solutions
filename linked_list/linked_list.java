@@ -21,6 +21,21 @@ class LinkedList {
     size++;
   }
 
+  public void addAtIndex(int val, int index) {
+    if (index >= size) {
+      return;
+    }
+
+    Node temp = head;
+    for (int i = 0; i < index - 1; i++) {
+      temp = temp.next;
+    }
+    Node n = new Node();
+    n.val = val;
+    n.next = temp.next;
+    temp.next = n;
+  }
+
   public void addLast(int val) {
     if (size == 0) {
       addFirst(val);
@@ -53,6 +68,8 @@ public class linked_list {
     list.display();
     list.addLast(0);
     list.addLast(-1);
+    list.display();
+    list.addAtIndex(7, 2);
     list.display();
   }
 }
