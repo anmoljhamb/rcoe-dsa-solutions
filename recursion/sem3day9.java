@@ -2,7 +2,21 @@ public class sem3day9 {
   public static void main(String[] args) {
     int k = 7;
     // boardPath(4, "", k);
-    mazePath(3, 3, 0, 0, "");
+    // mazePath(3, 3, 0, 0, "");
+    generate(3, 0, 0, "");
+  }
+
+  public static void generate(int n, int opening, int closing, String ans) {
+    if (opening == n && closing == n) {
+      System.out.println(ans);
+      return;
+    }
+    if (opening < n) {
+      generate(n, opening + 1, closing, ans + "(");
+    }
+    if (closing < opening) {
+      generate(n, opening, closing + 1, ans + ")");
+    }
   }
 
   public static void mazePath(int m, int n, int row, int col, String ans) {
