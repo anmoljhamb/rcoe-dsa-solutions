@@ -20,10 +20,25 @@ class LinkedList {
     head = n;
     size++;
   }
+
+  public void display() {
+    Node temp = head;
+    while (temp != null) {
+      System.out.print(temp.val + "-->");
+      temp = temp.next;
+    }
+    System.out.println();
+  }
 }
 
 public class linked_list {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
+    LinkedList list = new LinkedList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.addFirst(3);
+    list.display();
+    list.addFirst(4);
+    list.display();
   }
 }
