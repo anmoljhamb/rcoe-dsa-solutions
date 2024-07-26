@@ -21,6 +21,17 @@ class LinkedList {
     size++;
   }
 
+  public void addLast(int val) {
+    if (size == 0) {
+      addFirst(val);
+      return;
+    }
+    Node n = new Node();
+    n.val = val;
+    tail.next = n;
+    tail = n;
+  }
+
   public void display() {
     Node temp = head;
     while (temp != null) {
@@ -39,6 +50,9 @@ public class linked_list {
     list.addFirst(3);
     list.display();
     list.addFirst(4);
+    list.display();
+    list.addLast(0);
+    list.addLast(-1);
     list.display();
   }
 }
