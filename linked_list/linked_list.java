@@ -101,6 +101,16 @@ class LinkedList {
     tail = secondLast;
     size--;
   }
+
+  public int middle() {
+    Node slow = head;
+    Node fast = head;
+    while (fast != null && fast.next != null) {
+      fast = fast.next.next;
+      slow = slow.next;
+    }
+    return slow.val;
+  }
 }
 
 public class linked_list {
@@ -126,5 +136,6 @@ public class linked_list {
     list.display();
     list.removeAtIndex(2);
     list.display();
+    System.out.println("Middle value: " + list.middle());
   }
 }
