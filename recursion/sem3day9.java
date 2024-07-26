@@ -1,9 +1,10 @@
 public class sem3day9 {
   public static void main(String[] args) {
-    boardPath(4, "");
+    int k = 7;
+    boardPath(4, "", k);
   }
 
-  public static void boardPath(int target, String ans) {
+  public static void boardPath(int target, String ans, int k) {
     if (target < 0) {
       return;
     }
@@ -11,8 +12,8 @@ public class sem3day9 {
       System.out.println(ans);
       return;
     }
-    boardPath(target - 1, ans + 1);
-    boardPath(target - 2, ans + 2);
-    boardPath(target - 3, ans + 3);
+    for (int i = 1; i <= k; i++) {
+      boardPath(target - i, ans + i, k);
+    }
   }
 }
