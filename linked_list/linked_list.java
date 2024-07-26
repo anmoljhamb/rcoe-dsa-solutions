@@ -21,6 +21,27 @@ class LinkedList {
     size++;
   }
 
+  public int getFirst() {
+    return head.val;
+  }
+
+  Node getNodeAtIndex(int index) {
+    Node temp = head;
+    while (index > 0) {
+      temp = temp.next;
+      index--;
+    }
+    return temp;
+  }
+
+  public int getAtIndex(int index) {
+    return getNodeAtIndex(index).val;
+  }
+
+  public int getLast() {
+    return tail.val;
+  }
+
   public void addAtIndex(int val, int index) {
     if (index >= size) {
       return;
@@ -71,5 +92,8 @@ public class linked_list {
     list.display();
     list.addAtIndex(7, 2);
     list.display();
+    System.out.println("head: " + list.getFirst());
+    System.out.println("tail: " + list.getLast());
+    System.out.println("at 2: " + list.getAtIndex(2));
   }
 }
