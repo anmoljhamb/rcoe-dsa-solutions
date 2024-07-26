@@ -66,6 +66,7 @@ class LinkedList {
     n.val = val;
     tail.next = n;
     tail = n;
+    size++;
   }
 
   public void display() {
@@ -75,6 +76,30 @@ class LinkedList {
       temp = temp.next;
     }
     System.out.println();
+  }
+
+  public void removeFirst() {
+    head = head.next;
+    size--;
+  }
+
+  public void removeAtIndex(int index) {
+    Node prev = getNodeAtIndex(index - 1);
+    Node current = prev.next;
+    Node next = current.next;
+    prev.next = next;
+    size--;
+  }
+
+  public void removeLast() {
+    if (size == 0) {
+      removeFirst();
+      return;
+    }
+    Node secondLast = getNodeAtIndex(size - 1);
+    secondLast.next = null;
+    tail = secondLast;
+    size--;
   }
 }
 
@@ -95,5 +120,11 @@ public class linked_list {
     System.out.println("head: " + list.getFirst());
     System.out.println("tail: " + list.getLast());
     System.out.println("at 2: " + list.getAtIndex(2));
+    list.removeFirst();
+    list.display();
+    list.removeLast();
+    list.display();
+    list.removeAtIndex(2);
+    list.display();
   }
 }
