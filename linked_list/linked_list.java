@@ -111,6 +111,20 @@ class LinkedList {
     }
     return slow.val;
   }
+
+  public int kthLast(int k) {
+    Node slow = head;
+    Node fast = head;
+    while (k > 0) {
+      fast = fast.next;
+      k--;
+    }
+    while (fast != null) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    return slow.val;
+  }
 }
 
 public class linked_list {
@@ -137,5 +151,6 @@ public class linked_list {
     list.removeAtIndex(2);
     list.display();
     System.out.println("Middle value: " + list.middle());
+    System.out.println("2nd last: " + list.kthLast(2));
   }
 }
