@@ -125,6 +125,19 @@ class LinkedList {
     }
     return slow.val;
   }
+
+  public bool hasCycle() {
+    Node slow = head;
+    Node fast = head;
+    while (fast != null && fast.next != null) {
+      fast = fast.next.next;
+      slow = slow.next.next;
+      if (slow == fast) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 public class linked_list {
