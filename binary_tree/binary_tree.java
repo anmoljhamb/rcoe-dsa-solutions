@@ -13,6 +13,34 @@ class Tree {
     root = inputTree();
   }
 
+  public void inOrder() {
+    inOrderTraversal(root);
+    System.out.println();
+  }
+
+  void inOrderTraversal(Node root) {
+    if (root == null) {
+      return;
+    }
+    inOrderTraversal(root.left);
+    System.out.print(root.val + " ");
+    inOrderTraversal(root.right);
+  }
+
+  public void postOrder() {
+    postOrderTraversal(root);
+    System.out.println();
+  }
+
+  void postOrderTraversal(Node root) {
+    if (root == null) {
+      return;
+    }
+    postOrderTraversal(root.left);
+    postOrderTraversal(root.right);
+    System.out.print(root.val + " ");
+  }
+
   public void preOrder() {
     preOrderTraversal(root);
     System.out.println();
@@ -47,5 +75,7 @@ public class binary_tree {
   public static void main(String[] args) {
     Tree tree = new Tree();
     tree.preOrder();
+    tree.inOrder();
+    tree.postOrder();
   }
 }
