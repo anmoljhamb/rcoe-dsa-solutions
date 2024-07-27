@@ -13,6 +13,20 @@ class Tree {
     root = inputTree();
   }
 
+  public void preOrder() {
+    preOrderTraversal(root);
+    System.out.println();
+  }
+
+  void preOrderTraversal(Node root) {
+    if (root == null) {
+      return;
+    }
+    System.out.print(root.val + " ");
+    preOrderTraversal(root.left);
+    preOrderTraversal(root.right);
+  }
+
   public Node inputTree() {
     int temp = sc.nextInt();
     Node n = new Node();
@@ -32,5 +46,6 @@ class Tree {
 public class binary_tree {
   public static void main(String[] args) {
     Tree tree = new Tree();
+    tree.preOrder();
   }
 }
